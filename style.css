@@ -1,0 +1,190 @@
+/* ---Reset--- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* ---Common--- */
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://images.pexels.com/photos/1019470/abacus-mathematics-addition-subtraction-1019470.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.over{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #343638;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/* ---Calculator--- */
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    width: 100%;
+    background-color: #c8d6e5;
+    margin: 0px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Settings */
+.wrapper .settings{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .settings .time{
+    height: 25px;
+    width: 50%;
+    border-radius: 10px;
+    border: 1px solid #34495e;
+    background-color: #10ac84;
+    color: #222f3e;
+    outline: none;
+    padding: 10px;
+    font-size: 0.8rem;
+    pointer-events: none;
+}
+
+.wrapper .settings .switch{
+    position: relative;
+    background-color: #10ac84;
+    padding: 5px 10px;
+    width: 70px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.wrapper .settings .slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    border-radius: 10px;
+    background-color: #aaa69d;
+    transition: all 0.3s ease-in;
+}
+
+.wrapper .settings .slider::before{
+    content: '';
+    position: absolute;
+    height: 85%;
+    width: 50%;
+    top: 2px;
+    left: 2px;
+    background-color: #ecf0f1;
+    border-radius: 50%;
+    transition: all 0.3s ease-in;
+}
+
+.wrapper .settings .switch input{
+    display: none;
+}
+
+.wrapper .settings label i{
+    color: #222f3e;
+    font-size: 0.9rem;
+}
+
+.wrapper .settings .switch input:checked + .slider{
+    background-color: #ff6b6b;
+}
+
+.wrapper .settings .switch input:checked + .slider::before{
+    transform: translateX(80%);
+}
+
+/* Display */
+.wrapper .display{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper .display input{
+    width: 100%;
+    height: 45px;
+    border: 1px solid #34495e;
+    border-radius: 10px;
+    outline: none;
+    text-align: right;
+    padding: 30px 20px;
+    font-size: 1.7rem;
+    background-color: #ecf0f1;
+    color: #222f3e;
+}
+
+.wrapper .display .dis1{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: none;
+    pointer-events: none;
+}
+
+.wrapper .display .dis2{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: none;
+}
+
+/* Buttons */
+.wrapper .normal .row{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper .normal .row .n-btn{
+    max-width: 65px;
+    min-height: 65px;
+    width: 100%;
+    font-size: 1.1rem;
+    border: 1px solid #34495e;
+    border-radius: 10px;
+    color: #222f3e;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in;
+}
+
+.wrapper .normal .row .num{
+    background-color: #ff6b6b;
+}
+
+.wrapper .normal .row .num:hover{
+    background-color: #10ac84;
+}
+
+.wrapper .normal .row .op{
+    background-color: #10ac84;
+    color: #ecf0f1;
+}
+
+.wrapper .normal .row .op:hover{
+    background-color: #ff6b6b;
+}
