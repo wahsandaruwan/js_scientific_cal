@@ -38,7 +38,6 @@ body{
     max-width: 420px;
     width: 100%;
     background-color: #c8d6e5;
-    margin: 0px auto;
     padding: 20px;
     border-radius: 10px;
 }
@@ -67,6 +66,7 @@ body{
 .wrapper .settings .switch{
     position: relative;
     background-color: #10ac84;
+    margin-left: 10px;
     padding: 5px 10px;
     width: 70px;
     border-radius: 10px;
@@ -189,4 +189,12 @@ body{
 
 .wrapper .normal .row .op:hover{
     background-color: #ff6b6b;
+}
+
+/* ---Responsive--- */
+@media(max-width: 500px){
+    .wrapper .normal .row .n-btn{
+        max-width: 50px;
+        min-height: 50px;
+    }
 }
