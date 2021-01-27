@@ -191,6 +191,11 @@ body{
     background-color: #ff6b6b;
 }
 
+.wrapper .normal .row .n-btn:active{
+    transition-duration: 0s;
+    background-color: #445e79;
+}
+
 /* ---Responsive--- */
 @media(max-width: 500px){
     .wrapper .normal .row .n-btn{
