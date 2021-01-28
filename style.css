@@ -143,7 +143,6 @@ body{
 .wrapper .display .dis1{
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    pointer-events: none;
     height: 45px;
     background-color: #aaa69d;
 }
@@ -162,7 +161,7 @@ body{
     align-items: center;
 }
 
-.wrapper .normal .row .n-btn{
+.wrapper .normal .row .btn{
     max-width: 65px;
     min-height: 65px;
     width: 100%;
