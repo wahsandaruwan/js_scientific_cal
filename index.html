@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scientific Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./fontawesome-free-5.15.2-web/css/all.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
 </head>
 <body onload="document.getElementById('dt').value = new Date().toUTCString()">
     <!-- Overlay -->
@@ -14,7 +15,7 @@
     <div class="wrapper">
         <!-- Settings -->
         <div class="settings">
-            <input type="text" class="time" id="dt">
+            <input type="text" class="time" id="dt" disabled>
             <label for="sct" class="switch">
                 <i class="fas fa-calculator"></i>
                 <input id="sct" type="checkbox">
@@ -28,8 +29,8 @@
         </div>
         <!-- Display -->
         <div class="display">
-            <input type="text" class="dis dis1" name="display1" value="123445" disabled>
-            <textarea class="dis dis2" name="display2"></textarea>
+            <input type="text" class="dis dis1" disabled>
+            <textarea class="dis dis2"></textarea>
         </div>
         <!-- Normal Buttons -->
         <div class="normal">
@@ -37,29 +38,29 @@
                 <button class="btn n-btn num">1</button>
                 <button class="btn n-btn num">2</button>
                 <button class="btn n-btn num">3</button>
-                <button class="btn n-btn op">+</button>
-                <button class="btn n-btn op">-/+</button>
+                <button class="btn n-btn clr">AC</button>
+                <button class="btn n-btn clr">DEL</button>
             </div>
             <div class="row">
                 <button class="btn n-btn num">4</button>
                 <button class="btn n-btn num">5</button>
                 <button class="btn n-btn num">6</button>
+                <button class="btn n-btn op">+</button>
                 <button class="btn n-btn op">-</button>
-                <button class="btn n-btn op">&radic;</button>
             </div>
             <div class="row">
                 <button class="btn n-btn num">7</button>
                 <button class="btn n-btn num">8</button>
                 <button class="btn n-btn num">9</button>
                 <button class="btn n-btn op">/</button>
-                <button class="btn n-btn op">X<sup>3</sup></button>
+                <button class="btn n-btn op">x<sup>2</sup></button>
             </div>
             <div class="row">
                 <button class="btn n-btn num">.</button>
                 <button class="btn n-btn num">0</button>
                 <button class="btn n-btn op">=</button>
-                <button class="btn n-btn op">X</button>
-                <button class="btn n-btn op">X<sup>2</sup></button>
+                <button class="btn n-btn op">x</button>
+                <button class="btn n-btn op">&radic;</button>
             </div>
         </div>
     </div>
