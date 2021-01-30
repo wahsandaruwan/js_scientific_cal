@@ -20,7 +20,7 @@ function clearAll(){
 
 // Delete function
 function deleteCurrent(){
-    
+    expression = expression.slice(0, -1);
 }
 
 // Append function
@@ -56,3 +56,10 @@ numberButtonsNormal.forEach(function(number){
     });
 });
 
+// ---Clear & Delete process---
+clrButtonsNormal.forEach(function(clr){
+    clr.addEventListener('click', function(){
+        clr.innerText === 'AC' ? clearAll() : deleteCurrent();
+        updateDisplay();
+    });
+});
