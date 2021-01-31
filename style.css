@@ -130,29 +130,31 @@ sup{
 }
 
 .wrapper .display .dis{
-    resize: none;
     width: 100%;
     border: none;
     border-radius: 10px;
     font-size: 1.4rem;
     outline: none;
     text-align: right;
-    padding: 30px 20px;
     background-color: #ecf0f1;
     color: #222f3e;
-    overflow: auto;
 }
 
 .wrapper .display .dis1{
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    height: 45px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0px 20px;
     background-color: #aaa69d;
 }
 
 .wrapper .display .dis2{
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    resize: none;
+    padding: 30px 20px;
+    overflow: auto;
 }
 
 /* Buttons */
@@ -194,12 +196,20 @@ sup{
     background-color: #ff6b6b;
 }
 
+.wrapper .normal .row .equal{
+    background-color: #fd44b6;
+}
+
+.wrapper .normal .row .equal:hover{
+    background-color: #f1b635;
+}
+
 .wrapper .normal .row .clr{
     background-color: #f1b635;
 }
 
 .wrapper .normal .row .clr:hover{
-    background-color: #aaa69d;
+    background-color: #fd44b6;
 }
 
 .wrapper .normal .row .n-btn:active{
