@@ -111,7 +111,22 @@ function updateDisplay(){
     operationDisplay.placeholder = result;
 }
 
+// Activate dark mode function
+function activityDark(){
+    if(darkMode.checked){
+        wrapper.classList.add('dark');
+    }else{
+        wrapper.classList.remove('dark');
+        darkMode.checked = false;
+    }
+}
+
 // ---Event listeners for elements---
+
+// Window load
+window.addEventListener('load', function(){
+    activityDark();
+})
 
 // Get numbers
 // The forEach() method calls the provided function once for each element of the array. The provided function may perform any kind of operation on the elements of the given array.
@@ -151,13 +166,7 @@ equalButtonNormal.addEventListener('click', function(){
 });
 
 // For dark Mode
-darkMode.addEventListener('change', function(){
-    if(this.checked){
-        wrapper.classList.add('dark');
-    }else{
-        wrapper.classList.remove('dark');
-    }
-});
+darkMode.addEventListener('change', activityDark);
 
 
 // For drag and drop
@@ -166,8 +175,8 @@ wrapper.addEventListener('dragstart', function(){
 });
 
 wrapper.addEventListener('dragend', function(){
-    console.log('drag end');
     this.className = 'wrapper';
+    activityDark();
 });
 
 document.body.addEventListener('dragover', function(e){
