@@ -222,6 +222,11 @@ sup{
     background-color: #445e79;
 }
 
+/* ---Dark Mode--- */
+.dark{
+    filter: invert(1) hue-rotate(170deg)
+}
+
 /* ---Responsive--- */
 @media(max-width: 500px){
     .wrapper .normal .row .btn{

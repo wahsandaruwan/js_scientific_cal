@@ -7,6 +7,9 @@ var equalButtonNormal = document.querySelector('.normal .row .equal');
 var expressionDisplay = document.querySelector('.display .dis1');
 var operationDisplay = document.querySelector('.display .dis2');
 
+var darkMode = document.querySelector('#dark');
+var wrapper = document.querySelector('.wrapper');
+
 var operators = ['+', '-', '*','/'];
 var power = 'POWER(';
 var factorial = 'FACTORIAL';
@@ -15,6 +18,7 @@ var opDis = '';
 var lastOp = '';
 var result = '';
 var isPeriod = false;
+var dark = false;
 
 // ---Functions---
 
@@ -145,3 +149,17 @@ equalButtonNormal.addEventListener('click', function(){
     result = '';
     updateDisplay();
 });
+
+// For dark Mode
+darkMode.addEventListener('change', function(){
+    if(this.checked){
+        wrapper.classList.add('dark')
+    }else{
+        wrapper.classList.remove('dark')
+    }
+});
+
+
+
+
+
