@@ -57,7 +57,6 @@ function appendNumber(number){
 function identifyOperator(operator){
     isPeriod = false;
     if(!opDis) return;
-
     if(operator === 'x2'){
         opDis = parseFloat(opDis) ** 2;
         return;
@@ -142,6 +141,7 @@ operatorButtonsNormal.forEach(function(op){
 
 // For equal
 equalButtonNormal.addEventListener('click', function(){
+    if(!opDis || !expDis) return;
     isPeriod = false;
     basicCalculation();
     opDis = result;
