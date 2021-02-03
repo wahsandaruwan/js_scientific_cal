@@ -16,6 +16,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .over{
@@ -35,15 +36,14 @@ sup{
 
 /* ---Calculator--- */
 .wrapper{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 50px auto;
     max-width: 420px;
     width: 100%;
     background-color: #c8d6e5;
     padding: 20px;
     border-radius: 10px;
+    cursor: move;
+    transition: all 0.3s ease-in;
 }
 
 /* Settings */
@@ -159,7 +159,7 @@ sup{
 }
 
 .wrapper .display .dis2::placeholder{
-    color: #a8a9aa;
+    color: #797979;
 }
 
 /* Buttons */
@@ -202,7 +202,7 @@ sup{
 }
 
 .wrapper .normal .row .equal{
-    background-color: #fd44b6;
+    background-color: #c06b25;
 }
 
 .wrapper .normal .row .equal:hover{
@@ -214,12 +214,17 @@ sup{
 }
 
 .wrapper .normal .row .clr:hover{
-    background-color: #fd44b6;
+    background-color: #c06b25;
 }
 
 .wrapper .normal .row .n-btn:active{
     transition-duration: 0s;
     background-color: #445e79;
+}
+
+/* ---Drag and Drop */
+.invisible{
+    display: none;
 }
 
 /* ---Dark Mode--- */

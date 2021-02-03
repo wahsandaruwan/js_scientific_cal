@@ -153,13 +153,28 @@ equalButtonNormal.addEventListener('click', function(){
 // For dark Mode
 darkMode.addEventListener('change', function(){
     if(this.checked){
-        wrapper.classList.add('dark')
+        wrapper.classList.add('dark');
     }else{
-        wrapper.classList.remove('dark')
+        wrapper.classList.remove('dark');
     }
 });
 
 
+// For drag and drop
+wrapper.addEventListener('dragstart', function(){
+    setTimeout(()=>this.className = 'invisible',0);
+});
 
+wrapper.addEventListener('dragend', function(){
+    console.log('drag end');
+    this.className = 'wrapper';
+});
+
+document.body.addEventListener('dragover', function(e){
+    e.preventDefault();
+    wrapper.style.position = "absolute";
+    wrapper.style.marginLeft = e.clientX + "px";
+    wrapper.style.marginTop = e.clientY + "px";
+})
 
 
