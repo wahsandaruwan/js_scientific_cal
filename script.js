@@ -121,12 +121,25 @@ function activityDark(){
     }
 }
 
+// Limit drag and drop function
+function limitDrag(){
+    if(window.innerWidth > '500'){
+        wrapper.setAttribute('draggable', true);
+    }
+    else{
+        wrapper.setAttribute('draggable', false);
+    }
+
+    console.log(window.innerWidth);
+}
+
 // ---Event listeners for elements---
 
 // Window load
 window.addEventListener('load', function(){
     activityDark();
-})
+    limitDrag();
+});
 
 // Get numbers
 // The forEach() method calls the provided function once for each element of the array. The provided function may perform any kind of operation on the elements of the given array.
@@ -168,7 +181,6 @@ equalButtonNormal.addEventListener('click', function(){
 // For dark Mode
 darkMode.addEventListener('change', activityDark);
 
-
 // For drag and drop
 wrapper.addEventListener('dragstart', function(){
     setTimeout(()=>this.className = 'invisible',0);
@@ -184,6 +196,7 @@ document.body.addEventListener('dragover', function(e){
     wrapper.style.position = "absolute";
     wrapper.style.marginLeft = e.clientX + "px";
     wrapper.style.marginTop = e.clientY + "px";
-})
+});
+
 
 
