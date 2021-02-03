@@ -1,82 +1,111 @@
-// ---Common variables & nodeLists---
-var result = '';
-var input = '';
-var operation = undefined;
-
+// ---Common variables, nodeLists & objects---
 var numberButtonsNormal = document.querySelectorAll('.normal .row .num');
 var operatorButtonsNormal = document.querySelectorAll('.normal .row .op');
 var clrButtonsNormal = document.querySelectorAll('.normal .row .clr');
+
 var equalButtonNormal = document.querySelector('.normal .row .equal');
-var resultDisplay = document.querySelector('.display .dis1');
-var inputDisplay = document.querySelector('.display .dis2');
+var expressionDisplay = document.querySelector('.display .dis1');
+var operationDisplay = document.querySelector('.display .dis2');
+
+var operators = ['+', '-', '*','/'];
+var power = 'POWER(';
+var factorial = 'FACTORIAL';
+var expDis = '';
+var opDis = '';
+var lastOp = '';
+var result = '';
+var isPeriod = false;
 
 // ---Functions---
 
 // Clear function
 function clearAll(){
+    opDis = '';
+    expDis = '';
     result = '';
-    input = '';
-    operation = undefined;
+    lastOp = '';
 }
 
 // Delete function
 function deleteCurrent(){
-    input = input.slice(0, -1);
+    opDis = opDis.slice(0, -1);
 }
 
 // Append function
 function appendNumber(number){
-    // Period handling
+    // Control period
     if(number === '.'){
-        if(input.includes('.')) return;
-        if(input.length == 0) input = input + 0;
+        if(opDis === ''){
+            opDis += 0;
+        }
+        if(!isPeriod){
+            isPeriod = true;
+        }
+        else{
+            return;
+        }
     }
-    input = input + number;
+    // Update opDis
+    opDis += number;
 }
 
 // Operator identification function
 function identifyOperator(operator){
-    if(input === '') return;
-    if(result !== '') calculate();
+    isPeriod = false;
+    if(!opDis) return;
 
-    operation = operator;
-    result = input;
-    input = '';
+    if(operator === 'x2'){
+        opDis = parseFloat(opDis) ** 2;
+        return;
+    }
+    else{
+        if(expDis && opDis && lastOp){
+            // Start calculation
+            basicCalculation();
+        }
+        else{
+            // Update result
+            result = parseFloat(opDis);
+        }
+
+        // Update expDis
+        expDis += opDis + ' ' + operator + ' ';
+    }
+
+    // Update opDis
+    opDis = '';
+    // Update lastOp
+    lastOp = operator;
 }
 
-// Compute function
-function calculate(){
-    var calculation;
-    var res = parseFloat(result);
-    var inp = parseFloat(input);
-
-    if(isNaN(res) || isNaN(inp)) return;
-    switch(operation){
+// Basic calculation function
+function basicCalculation(){
+    switch(lastOp){
         case '+':
-            calculation = res + inp;
+            result = parseFloat(result) + parseFloat(opDis);
             break;
         case '-':
-            calculation = res - inp;
+            result = parseFloat(result) - parseFloat(opDis);
             break;
         case '*':
-            calculation = res * inp;
+            result = parseFloat(result) * parseFloat(opDis);
             break;
         case '/':
-            calculation = res / inp;
+            result = parseFloat(result) / parseFloat(opDis);
+            break;
+        case '%':
+            result = parseFloat(result) % parseFloat(opDis);
             break;
         default:
             return;
     }
-
-    input = calculation;
-    operation = undefined;
-    result = '';
 }
 
 // Display update function
 function updateDisplay(){
-    inputDisplay.innerText = input;
-    resultDisplay.innerText = result;
+    operationDisplay.innerText = opDis;
+    expressionDisplay.innerText = expDis;
+    operationDisplay.placeholder = result;
 }
 
 // ---Event listeners for elements---
@@ -107,8 +136,12 @@ operatorButtonsNormal.forEach(function(op){
     });
 });
 
-// Calculate
+// For equal
 equalButtonNormal.addEventListener('click', function(){
-    calculate();
+    isPeriod = false;
+    basicCalculation();
+    opDis = result;
+    expDis = '';
+    result = '';
     updateDisplay();
 });

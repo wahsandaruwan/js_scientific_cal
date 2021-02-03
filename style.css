@@ -132,29 +132,34 @@ sup{
 .wrapper .display .dis{
     width: 100%;
     border: none;
+    resize: none;
     border-radius: 10px;
-    font-size: 1.4rem;
     outline: none;
     text-align: right;
     background-color: #ecf0f1;
     color: #222f3e;
+    overflow-y: auto;
 }
 
 .wrapper .display .dis1{
+    font-size: 1rem;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    height: 50px;
-    line-height: 50px;
-    padding: 0px 20px;
     background-color: #aaa69d;
+    padding: 20px;
 }
 
 .wrapper .display .dis2{
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.3rem;
+    padding: 0px 20px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    resize: none;
-    padding: 30px 20px;
-    overflow: auto;
+}
+
+.wrapper .display .dis2::placeholder{
+    color: #a8a9aa;
 }
 
 /* Buttons */
