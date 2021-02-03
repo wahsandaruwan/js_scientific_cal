@@ -9,16 +9,13 @@ var operationDisplay = document.querySelector('.display .dis2');
 
 var darkMode = document.querySelector('#dark');
 var wrapper = document.querySelector('.wrapper');
+var timeUp = document.querySelector('.time');
 
 var operators = ['+', '-', '*','/'];
 var power = 'POWER(';
 var factorial = 'FACTORIAL';
-var expDis = '';
-var opDis = '';
-var lastOp = '';
-var result = '';
-var isPeriod = false;
-var dark = false;
+var expDis = opDis = lastOp = result = '';
+var isPeriod = dark = false;
 
 // ---Functions---
 
@@ -133,6 +130,12 @@ function limitDrag(){
     console.log(window.innerWidth);
 }
 
+// Time update function
+function timeUpdate(){
+    var time = new Date().toUTCString();
+    timeUp.value = time;
+}
+
 // ---Event listeners for elements---
 
 // Window load
@@ -197,6 +200,11 @@ document.body.addEventListener('dragover', function(e){
     wrapper.style.marginLeft = e.clientX + "px";
     wrapper.style.marginTop = e.clientY + "px";
 });
+
+
+// ---Direct function calling---
+// Update time
+setInterval(timeUpdate, 1000);
 
 
 
