@@ -1,4 +1,5 @@
-// ---Common variables, nodeLists & objects---
+// ---Common variables & nodeLists---
+// For basic calculator
 var numberButtonsNormal = document.querySelectorAll('.normal .row .num');
 var operatorButtonsNormal = document.querySelectorAll('.normal .row .op');
 var clrButtonsNormal = document.querySelectorAll('.normal .row .clr');
@@ -7,15 +8,16 @@ var equalButtonNormal = document.querySelector('.normal .row .equal');
 var expressionDisplay = document.querySelector('.display .dis1');
 var operationDisplay = document.querySelector('.display .dis2');
 
-var darkMode = document.querySelector('#dark');
-var wrapper = document.querySelector('.wrapper');
-var timeUp = document.querySelector('.time');
-
 var operators = ['+', '-', '*','/'];
 var power = 'POWER(';
 var factorial = 'FACTORIAL';
 var expDis = opDis = lastOp = result = '';
 var isPeriod = dark = false;
+
+// For other elements
+var darkMode = document.querySelector('#dark');
+var wrapper = document.querySelector('.wrapper');
+var timeUp = document.querySelector('.time');
 
 // ---Functions---
 
@@ -32,7 +34,7 @@ function deleteCurrent(){
     opDis = opDis.slice(0, -1);
 }
 
-// Append function
+// Number append function
 function appendNumber(number){
     // Control period
     if(number === '.'){
@@ -136,13 +138,7 @@ function timeUpdate(){
     timeUp.value = time;
 }
 
-// ---Event listeners for elements---
-
-// Window load
-window.addEventListener('load', function(){
-    activityDark();
-    limitDrag();
-});
+// ---Event listeners for basic calculator---
 
 // Get numbers
 // The forEach() method calls the provided function once for each element of the array. The provided function may perform any kind of operation on the elements of the given array.
@@ -181,6 +177,8 @@ equalButtonNormal.addEventListener('click', function(){
     updateDisplay();
 });
 
+// ---Event listeners for other elements---
+
 // For dark Mode
 darkMode.addEventListener('change', activityDark);
 
@@ -199,6 +197,12 @@ document.body.addEventListener('dragover', function(e){
     wrapper.style.position = "absolute";
     wrapper.style.marginLeft = e.clientX + "px";
     wrapper.style.marginTop = e.clientY + "px";
+});
+
+// Window load
+window.addEventListener('load', function(){
+    activityDark();
+    limitDrag();
 });
 
 
