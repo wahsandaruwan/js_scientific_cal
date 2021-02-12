@@ -36,7 +36,7 @@ sup{
 
 /* ---Calculator--- */
 .wrapper{
-    margin: 50px auto;
+    margin: 0 auto;
     max-width: 420px;
     width: 100%;
     background-color: #c8d6e5;
@@ -163,7 +163,8 @@ sup{
 }
 
 /* Buttons */
-.wrapper .normal .row{
+.wrapper .normal .row,
+.wrapper .science .row{
     width: 100%;
     margin-top: 10px;
     display: flex;
@@ -171,7 +172,8 @@ sup{
     align-items: center;
 }
 
-.wrapper .normal .row .btn{
+.wrapper .normal .row .btn,
+.wrapper .science .row .btn{
     max-width: 65px;
     min-height: 65px;
     width: 100%;
@@ -217,9 +219,19 @@ sup{
     background-color: #c06b25;
 }
 
-.wrapper .normal .row .n-btn:active{
+.wrapper .science .row .ops{
+    background-color: #27628a;
+    color: #ecf0f1;
+}
+
+.wrapper .science .row .ops:hover{
+    background-color: #ea4ef8;
+}
+
+.wrapper .normal .row .n-btn:active,
+.wrapper .science .row .s-btn:active{
     transition-duration: 0s;
-    background-color: #445e79;
+    background-color: #4393e4;
 }
 
 /* ---Drag and Drop */
