@@ -7,6 +7,7 @@ var clrButtonsNormal = document.querySelectorAll('.normal .row .clr');
 var equalButtonNormal = document.querySelector('.normal .row .equal');
 var expressionDisplay = document.querySelector('.display .dis1');
 var operationDisplay = document.querySelector('.display .dis2');
+var scCal = document.querySelector('.wrapper .science');
 
 var operators = ['+', '-', '*','/'];
 var power = 'POWER(';
@@ -18,6 +19,7 @@ var isPeriod = dark = false;
 var darkMode = document.querySelector('#dark');
 var wrapper = document.querySelector('.wrapper');
 var timeUp = document.querySelector('.time');
+var scMode = document.querySelector('#sct');
 
 // ---Functions---
 
@@ -138,6 +140,20 @@ function timeUpdate(){
     timeUp.value = time;
 }
 
+// Activate scientific mode
+function activateScmode(){
+    if(scMode.checked){
+        scCal.style.visibility = 'visible';
+        scCal.style.opacity = 1;
+        scCal.style.maxHeight = 400+'px';
+    }else{
+        scCal.style.display = 'visible';
+        scCal.style.opacity = 0;
+        scCal.style.maxHeight = 0;
+        scMode.checked = false;
+    }
+}
+
 // ---Event listeners for basic calculator---
 
 // Get numbers
@@ -202,8 +218,12 @@ document.body.addEventListener('dragover', function(e){
 // Window load
 window.addEventListener('load', function(){
     activityDark();
+    activateScmode();
     limitDrag();
 });
+
+// For scientifc mode
+scMode.addEventListener('change', activateScmode);
 
 
 // ---Direct function calling---
