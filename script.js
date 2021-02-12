@@ -62,6 +62,14 @@ function identifyOperator(operator){
         opDis = parseFloat(opDis) ** 2;
         return;
     }
+    else if(operator === '%'){
+        opDis = parseFloat(opDis) / 100;
+        return;
+    }
+    // else if(operator === '-'){
+    //     opDis += operator + opDis;
+    //     return;
+    // }
     else{
         if(expDis && opDis && lastOp){
             // Start calculation
@@ -88,17 +96,14 @@ function basicCalculation(){
         case '+':
             result = parseFloat(result) + parseFloat(opDis);
             break;
-        case '-':
-            result = parseFloat(result) - parseFloat(opDis);
-            break;
+        // case '-':
+        //     result = parseFloat(result) - parseFloat(opDis);
+        //     break;
         case '*':
             result = parseFloat(result) * parseFloat(opDis);
             break;
         case '/':
             result = parseFloat(result) / parseFloat(opDis);
-            break;
-        case '%':
-            result = parseFloat(result) % parseFloat(opDis);
             break;
         default:
             return;
@@ -124,7 +129,7 @@ function activityDark(){
 
 // Limit drag and drop function
 function limitDrag(){
-    if(window.innerWidth > '500'){
+    if(window.innerWidth > '600'){
         wrapper.setAttribute('draggable', true);
     }
     else{

@@ -15,7 +15,8 @@ body{
     background-image: url(./imgs/back.jpeg);
     background-size: cover;
     background-position: center;
-    overflow-x: hidden;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .over{
@@ -41,7 +42,6 @@ sup{
     background-color: #c8d6e5;
     padding: 20px;
     border-radius: 10px;
-    cursor: move;
     transition: all 0.3s ease-in;
 }
 
@@ -55,7 +55,7 @@ sup{
 
 .wrapper .settings .time{
     height: 35px;
-    width: 57%;
+    max-width: 57%;
     border-radius: 10px;
     border: none;
     background-color: #10ac84;
@@ -251,9 +251,15 @@ sup{
 }
 
 /* ---Responsive--- */
-@media(max-width: 500px){
-    .wrapper .normal .row .btn{
+@media(max-width: 400px){
+    .wrapper .normal .row .btn,
+    .wrapper .science .row .btn{
         max-width: 50px;
         min-height: 50px;
+    }
+
+    .wrapper .settings .time{
+        font-size: 0.55rem;
+        max-width: 50%;
     }
 }
